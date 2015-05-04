@@ -110,6 +110,8 @@ def server():
                         response = response_not_found()
                     except TypeError:
                         response = response_http_error('404.3 Mime Not Found')
+                    except AttributeError:
+                        response = response_http_error('404')
                     else:
                         response = response_ok(content, type)
 
